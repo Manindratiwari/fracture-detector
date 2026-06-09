@@ -2,4 +2,3 @@
 .gitignore
 .vercel
 node_modules
-dist
