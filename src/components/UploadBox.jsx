@@ -62,7 +62,7 @@ function UploadBox() {
     try {
 
       const response = await axios.post(
-        "http://127.0.0.1:5000/detect",
+        import.meta.env.VITE_BACKEND_URL + "/detect",
         formData
       )
 
@@ -71,8 +71,9 @@ function UploadBox() {
     } catch (error) {
 
       console.log(error)
+      console.log("Backend URL:", import.meta.env.VITE_BACKEND_URL)
 
-      alert("Backend connection failed")
+      alert("Backend connection failed. Check console for details.")
     }
   }
 
