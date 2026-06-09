@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "https://fracture-detector-api.onrender.com/$1"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
