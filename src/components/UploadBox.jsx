@@ -2,6 +2,7 @@ import { useState } from "react"
 import axios from "axios"
 import { FaCloudUploadAlt } from "react-icons/fa"
 import MedicalReport from "./MedicalReport"
+import BACKEND_URL from "./config"
 
 function UploadBox() {
 
@@ -62,7 +63,7 @@ function UploadBox() {
     try {
 
       const response = await axios.post(
-        import.meta.env.VITE_BACKEND_URL + "/detect",
+        `${BACKEND_URL}/detect",
         formData
       )
 
@@ -71,7 +72,7 @@ function UploadBox() {
     } catch (error) {
 
       console.log(error)
-      console.log("Backend URL:", import.meta.env.VITE_BACKEND_URL)
+      console.log("Backend URL:", BACKEND_URL)
 
       alert("Backend connection failed. Check console for details.")
     }
