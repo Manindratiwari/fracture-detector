@@ -1,3 +1,3 @@
-const BACKEND_URL = "https://fracture-detector-api.onrender.com";
+const BACKEND_URL = "/api";
 
 export default BACKEND_URL;

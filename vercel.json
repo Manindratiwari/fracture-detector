@@ -1,13 +1,8 @@
 {
-  "version": 2,
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "devCommand": "vite",
-  "installCommand": "npm install",
   "rewrites": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "source": "/api/(.*)",
+      "destination": "https://fracture-detector-api.onrender.com/$1"
     }
   ]
 }
