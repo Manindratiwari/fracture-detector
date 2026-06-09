@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+import os
 
 app = Flask(__name__)
 CORS(app)
@@ -12,10 +13,15 @@ def home():
     }
 
 # Detect Fracture API
-@app.route("/detect", methods=["POST"])
+@app.route("/detect", methods=["POST", "OPTIONS"])
 def detect():
+    if request.method == "OPTIONS":
+        return jsonify({"status": "ok"}), 200
 
-    file = request.files["image"]
+    file = request.files.get("image")
+
+    if not file:
+        return jsonify({"error": "No image provided"}), 400
 
     # Fake AI Result
     result = {
@@ -31,4 +37,5 @@ def detect():
     return jsonify(result)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
