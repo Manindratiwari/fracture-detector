@@ -2,7 +2,7 @@ import { useState } from "react"
 import axios from "axios"
 import { FaCloudUploadAlt } from "react-icons/fa"
 import MedicalReport from "./MedicalReport"
-import BACKEND_URL from "./config"
+import BACKEND_URL from "../config"
 
 function UploadBox() {
 
@@ -63,7 +63,7 @@ function UploadBox() {
     try {
 
       const response = await axios.post(
-        `${BACKEND_URL}/detect",
+        `${BACKEND_URL}/detect`,
         formData
       )
 
